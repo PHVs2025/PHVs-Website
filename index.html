@@ -188,6 +188,7 @@ h1{
     <!-- Replace # with your actual links -->
   <a class="btn" href="#" onclick="openReviewModal(event)">⭐&nbsp; Leave us a Google Review ⭐</a>
 
+
     <a class="btn" href="tel:+919920022299">📞&nbsp; Call Us</a>
     <a class="btn" href="https://wa.me/919920022299">💬&nbsp; Chat on WhatsApp</a>
    <a class="btn" href="https://maps.app.goo.gl/BXox3YN2cSb5Qzx1A">
@@ -226,7 +227,7 @@ h1{
 </section>
   <div class="footer">© 2026 PHVS Jewellers</div>
 </main>
- <!-- The Hidden Review Modal Pop-up -->
+<!-- The Hidden Review Modal Pop-up -->
 <div id="reviewModal" class="modal-overlay">
     <div class="modal-box">
         <span class="close-btn" onclick="closeReviewModal()">&times;</span>
@@ -239,6 +240,47 @@ h1{
             <div>"Excellent collection and highly authentic designs! The staff at PHVS Jewellers is incredibly professional and helpful. Highly recommended!"</div>
         </div>
 
+        <!-- Template 2 -->
+        <div class="prompt-card" onclick="copyAndRedirect('Beautiful craftsmanship and transparent pricing. Very trustworthy jeweller, had a wonderful shopping experience!')">
+            <span class="badge">Option B: Craftsmanship & Trust</span>
+            <div>"Beautiful craftsmanship and transparent pricing. Very trustworthy jeweller, had a wonderful shopping experience!"</div>
+        </div>
+
+        <!-- Template 3 -->
+        <div class="prompt-card" onclick="copyAndRedirect('Great customer service and stunning jewellery varieties. The team guided us perfectly throughout our purchase.')">
+            <span class="badge">Option C: Service & Variety</span>
+            <div>"Great customer service and stunning jewellery varieties. The team guided us perfectly throughout our purchase."</div>
+        </div>
+    </div>
+</div>
+
+<!-- Small Copy Alert Notification -->
+<div id="toastMessage" class="toast-popup">Copied to clipboard! Opening Google Reviews...</div>
+
+<script>
+    // 🔗 Real Direct Link for your Dadar West Showroom
+    const googleReviewUrl = "https://g.page/r/CbGJPtXDI3k_EBM/review";
+
+    function openReviewModal(event) {
+        if(event) event.preventDefault();
+        document.getElementById('reviewModal').style.display = 'flex';
+    }
+    function closeReviewModal() {
+        document.getElementById('reviewModal').style.display = 'none';
+    }
+    function copyAndRedirect(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            const toast = document.getElementById('toastMessage');
+            toast.style.display = 'block';
+            setTimeout(() => {
+                window.location.href = googleReviewUrl;
+            }, 1200);
+        }).catch(err => {
+            window.location.href = googleReviewUrl;
+        });
+    }
+</script>
+ 
         <!-- Template 2 -->
         <div class="prompt-card" onclick="copyAndRedirect('Beautiful craftsmanship and transparent pricing. Very trustworthy jeweller, had a wonderful shopping experience!')">
             <span class="badge">Option B: Craftsmanship & Trust</span>
