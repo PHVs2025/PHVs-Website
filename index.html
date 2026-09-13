@@ -23,6 +23,59 @@ body{
   color:var(--ink);
   font-family:Arial,Helvetica,sans-serif;
 }
+ /* --- Google Review Popup Styles --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+.modal-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    max-width: 440px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    color: #333;
+}
+.close-btn {
+    position: absolute;
+    top: 12px; right: 18px;
+    font-size: 28px; font-weight: bold; color: #aaa;
+    cursor: pointer;
+}
+.close-btn:hover { color: #333; }
+.prompt-card {
+    background: #f8f9fa;
+    border: 2px solid #e8eaed;
+    border-radius: 8px;
+    padding: 12px 15px; margin: 12px 0;
+    cursor: pointer; text-align: left; font-size: 13px;
+    transition: all 0.2s ease;
+    line-height: 1.4;
+}
+.prompt-card:hover { border-color: var(--maroon); background: #f1f3f4; }
+.badge {
+    background: var(--maroon); color: white;
+    padding: 2px 6px; border-radius: 4px;
+    font-size: 10px; font-weight: bold;
+    display: inline-block; margin-bottom: 6px;
+}
+.toast-popup {
+    position: fixed; bottom: 30px; left: 50%;
+    transform: translateX(-50%);
+    background: #222; color: #fff;
+    padding: 12px 24px; border-radius: 6px;
+    font-size: 14px; display: none; z-index: 10000;
+}
+
 .page{
   width:min(100%,720px);
   margin:0 auto;
@@ -133,7 +186,8 @@ h1{
 
   <div class="actions">
     <!-- Replace # with your actual links -->
-   <a class="btn" href="https://g.page/r/CbGJPtXDI3k_EBM/review">⭐&nbsp; Leave us a Google Review ⭐</a>
+  <a class="btn" href="#" onclick="openReviewModal(event)">⭐&nbsp; Leave us a Google Review ⭐</a>
+
     <a class="btn" href="tel:+919920022299">📞&nbsp; Call Us</a>
     <a class="btn" href="https://wa.me/919920022299">💬&nbsp; Chat on WhatsApp</a>
    <a class="btn" href="https://maps.app.goo.gl/BXox3YN2cSb5Qzx1A">
@@ -172,5 +226,59 @@ h1{
 </section>
   <div class="footer">© 2026 PHVS Jewellers</div>
 </main>
+ <!-- The Hidden Review Modal Pop-up -->
+<div id="reviewModal" class="modal-overlay">
+    <div class="modal-box">
+        <span class="close-btn" onclick="closeReviewModal()">&times;</span>
+        <h2 style="color:var(--maroon); margin-top:10px; font-size:20px;">Thank You for Supporting PHVS!</h2>
+        <p style="color:#666; font-size:14px; margin-bottom:20px;">Tap a shortcut review template below. It copies automatically, and we will open our Google page for you to paste it!</p>
+
+        <!-- Template 1 -->
+        <div class="prompt-card" onclick="copyAndRedirect('Excellent collection and highly authentic designs! The staff at PHVS Jewellers is incredibly professional and helpful. Highly recommended!')">
+            <span class="badge">Option A: Professional & Helpful</span>
+            <div>"Excellent collection and highly authentic designs! The staff at PHVS Jewellers is incredibly professional and helpful. Highly recommended!"</div>
+        </div>
+
+        <!-- Template 2 -->
+        <div class="prompt-card" onclick="copyAndRedirect('Beautiful craftsmanship and transparent pricing. Very trustworthy jeweller, had a wonderful shopping experience!')">
+            <span class="badge">Option B: Craftsmanship & Trust</span>
+            <div>"Beautiful craftsmanship and transparent pricing. Very trustworthy jeweller, had a wonderful shopping experience!"</div>
+        </div>
+
+        <!-- Template 3 -->
+        <div class="prompt-card" onclick="copyAndRedirect('Great customer service and stunning jewellery varieties. The team guided us perfectly throughout our purchase.')">
+            <span class="badge">Option C: Service & Variety</span>
+            <div>"Great customer service and stunning jewellery varieties. The team guided us perfectly throughout our purchase."</div>
+        </div>
+    </div>
+</div>
+
+<!-- Small Copy Alert Notification -->
+<div id="toastMessage" class="toast-popup">Copied to clipboard! Opening Google Reviews...</div>
+
+<script>
+    // 🔗 Fixed Link for Dadar West Showroom
+    const googleReviewUrl = "https://google.com";
+
+    function openReviewModal(event) {
+        if(event) event.preventDefault();
+        document.getElementById('reviewModal').style.display = 'flex';
+    }
+    function closeReviewModal() {
+        document.getElementById('reviewModal').style.display = 'none';
+    }
+    function copyAndRedirect(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            const toast = document.getElementById('toastMessage');
+            toast.style.display = 'block';
+            setTimeout(() => {
+                window.location.href = googleReviewUrl;
+            }, 1200);
+        }).catch(err => {
+            window.location.href = googleReviewUrl;
+        });
+    }
+</script>
+
 </body>
 </html>
