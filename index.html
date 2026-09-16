@@ -232,7 +232,16 @@ h1{
     <div class="modal-box">
         <span class="close-btn" onclick="closeReviewModal()">&times;</span>
         <h2 style="color:var(--maroon); margin-top:10px; font-size:20px;">Thank You for Supporting PHVS!</h2>
-        <p style="color:#666; font-size:14px; margin-bottom:20px;">Tap a shortcut review template below. It copies automatically, and we will open our Google page for you to paste it!</p>
+        <p style="color:#666; font-size:14px; margin-bottom:15px;">Choose how you would prefer to leave your feedback:</p>
+
+        <!-- PRIMARY DIRECT ACTION: Write Own Review -->
+        <div class="custom-write-btn" onclick="window.location.href=googleReviewUrl;" style="margin-bottom: 20px;">
+            ✍️ Open Direct Google Form (Type My Own)
+        </div>
+
+        <div style="border-top: 1px solid #e8eaed; padding-top: 15px; margin-top: 15px;">
+            <p style="color:#777; font-size:13px; font-style: italic; margin-bottom: 10px;">Or tap a quick template shortcut to copy it before opening Google:</p>
+        </div>
 
         <!-- Template 1 -->
         <div class="prompt-card" onclick="copyAndRedirect('Excellent collection and highly authentic designs! The staff at PHVS Jewellers is incredibly professional and helpful. Highly recommended!')">
@@ -251,11 +260,6 @@ h1{
             <span class="badge">Option C: Service & Variety</span>
             <div>"Great customer service and stunning jewellery varieties. The team guided us perfectly throughout our purchase."</div>
         </div>
-
-        <!-- Option to Write Own Review -->
-        <div class="custom-write-btn" onclick="window.location.href=googleReviewUrl;">
-            ✍️ Write My Own Custom Review
-        </div>
     </div>
 </div>
 
@@ -263,8 +267,8 @@ h1{
 <div id="toastMessage" class="toast-popup">Copied to clipboard! Opening Google Reviews...</div>
 
 <script>
-    // 🔗 Real Direct Link for your Dadar West Showroom
-    const googleReviewUrl = "https://g.page";
+    // 🔗 Your Custom Short Google Link Embedded Perfectly
+    const googleReviewUrl = "https://g.page/r/CbGJPtXDI3k_EBM/review";
 
     function openReviewModal(event) {
         if(event) event.preventDefault();
@@ -288,3 +292,4 @@ h1{
 
 </body>
 </html>
+
