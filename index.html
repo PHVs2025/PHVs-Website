@@ -23,7 +23,7 @@ body{
   color:var(--ink);
   font-family:Arial,Helvetica,sans-serif;
 }
- /* --- Google Review Popup Styles --- */
+/* --- Google Review Popup Styles --- */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -43,6 +43,59 @@ body{
     position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     text-align: center;
+    color: #333;
+}
+.close-btn {
+    position: absolute;
+    top: 12px; right: 18px;
+    font-size: 28px; font-weight: bold; color: #aaa;
+    cursor: pointer;
+}
+.close-btn:hover { color: #333; }
+.prompt-card {
+    background: #f8f9fa;
+    border: 2px solid #e8eaed;
+    border-radius: 8px;
+    padding: 12px 15px; margin: 12px 0;
+    cursor: pointer; text-align: left; font-size: 13px;
+    transition: all 0.2s ease;
+    line-height: 1.4;
+}
+.prompt-card:hover { border-color: var(--maroon); background: #f1f3f4; }
+.badge {
+    background: var(--maroon); color: white;
+    padding: 2px 6px; border-radius: 4px;
+    font-size: 10px; font-weight: bold;
+    display: inline-block; margin-bottom: 6px;
+}
+.toast-popup {
+    position: fixed; bottom: 30px; left: 50%;
+    transform: translateX(-50%);
+    background: #222; color: #fff;
+    padding: 12px 24px; border-radius: 6px;
+    font-size: 14px; display: none; z-index: 10000;
+}
+/* --- UPGRADED SOLID MAROON BUTTON --- */
+.custom-write-btn {
+    background: var(--maroon);
+    color: #ffffff !important;
+    border: 2px solid var(--maroon);
+    border-radius: 8px;
+    padding: 14px 15px;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(128, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+.custom-write-btn:hover {
+    background: #5a0000; /* Slightly darker maroon on hover */
+    border-color: #5a0000;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(128, 0, 0, 0.3);
+}
+
     color: #333;
 }
 .close-btn {
